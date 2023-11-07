@@ -1,10 +1,13 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 
 
 const Register = () => {
+
+    const { createUser } = useContext(AuthContext)
 
     const handleRegister = e => {
         e.preventDefault()
@@ -13,6 +16,17 @@ const Register = () => {
         const password = form.password.value;
         const name = form.name.value;
         console.log(name, email, password)
+
+
+        createUser(email,password)
+        .then(result=> {
+            console.log(result.user)
+        })
+        .catch(error =>{
+            console.error(error)
+        })
+
+
     }
 
 

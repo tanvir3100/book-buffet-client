@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+
 
 
 const Navbar = () => {
+    const { user } = useContext(AuthContext)
     const navLink = <>
         <NavLink
             to="/"
@@ -58,15 +62,18 @@ const Navbar = () => {
                 <Link to="/"><p className='text-2xl font-bold text-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% border-none'>Book<span className='text-[#971cdf88]'>Buffet</span></p></Link>
             </div>
             <div className="navbar-end">
-            <div className="hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 gap-2">
-                    {navLink}
-                </ul>
-            </div>
+                <div className="hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1 gap-2">
+                        {navLink}
+                    </ul>
+                </div>
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            {
+                                user ? <img src={user.photoURL} /> :
+                                    <img src="https://i.ibb.co/FVJxkMs/istockphoto-1495088043-612x612-removebg-preview.png" />
+                            }
                         </div>
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">

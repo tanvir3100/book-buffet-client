@@ -1,12 +1,14 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import {  useContext, useEffect } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 
 
 const Login = () => {
 
+    const { signIn} = useContext(AuthContext)
 
     const handleLogin = e => {
         e.preventDefault()
@@ -14,6 +16,17 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+
+        signIn(email,password)
+        .then(res=>{
+            console.log(res.user)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+
+    
+
     }
 
 
