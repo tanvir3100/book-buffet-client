@@ -1,9 +1,12 @@
+import Banner from "../../Components/Banner/Banner";
+import Poster from "../../Components/Poster/Poster";
 
 
 const Home = () => {
     return (
         <div>
-            <h2 className="text-2xl">This is home section</h2>
+            <Poster></Poster>
+            <Banner></Banner>
         </div>
     );
 };

@@ -3,6 +3,10 @@ import 'aos/dist/aos.css';
 import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
+import auth from '../../firebase/firebase.config';
+import { updateProfile } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
@@ -15,16 +19,25 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const name = form.name.value;
-        console.log(name, email, password)
 
 
-        createUser(email,password)
-        .then(result=> {
-            console.log(result.user)
-        })
-        .catch(error =>{
-            console.error(error)
-        })
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                toast('Register Successful go to home page')
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                })
+                    .then()
+                    .catch(error => {
+                        console.log(error)
+                    })
+            })
+            .catch(error => {
+                console.error(error)
+                toast(error.message)
+            })
+
 
 
     }
@@ -38,7 +51,7 @@ const Register = () => {
     return (
         <div className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
             <div className='py-2 pl-2 w-full flex justify-between items-center px-10 mx-auto'>
-                <Link to="/"><button className='btn px-10 border rounded-full'>Back</button></Link>
+                <Link to="/"><button className='btn px-10 border rounded-full'>Back to home</button></Link>
                 <Link to="/"><h1 className='text-2xl font-bold text-white btn bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% border-none'>Book<span className='text-[#971cdf88]'>Buffet</span></h1></Link>
             </div>
             <div className="hero min-h-screen">
@@ -83,6 +96,7 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

@@ -1,31 +1,33 @@
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import {  useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
 
-    const { signIn} = useContext(AuthContext)
+    const { signIn } = useContext(AuthContext)
 
     const handleLogin = e => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
 
-        signIn(email,password)
-        .then(res=>{
-            console.log(res.user)
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+        signIn(email, password)
+            .then(res => {
+                console.log(res.user)
+                toast('login Successful,go to home page')
+            })
+            .catch(error => {
+                console.log(error)
+                toast(error.message)
+            })
 
-    
 
     }
 
@@ -40,7 +42,7 @@ const Login = () => {
     return (
         <div className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
             <div className='py-2 pl-2 w-full flex justify-between items-center px-10 mx-auto'>
-                <Link to="/"><button className='btn px-10 border rounded-full'>Back</button></Link>
+                <Link to="/"><button className='btn px-10 border rounded-full'>Back ot Home</button></Link>
                 <Link to="/"><h1 className='text-2xl font-bold text-white btn bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% border-none'>Book<span className='text-[#971cdf88]'>Buffet</span></h1></Link>
             </div>
             <div className="hero min-h-screen">
@@ -82,6 +84,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
