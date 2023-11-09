@@ -7,12 +7,15 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import BorrowBooks from "../Pages/BorrowBooks/BorrowBooks";
 import Update from "../Pages/Update/Update";
+import Details from "../Pages/Details/Details";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -44,6 +47,10 @@ const router = createBrowserRouter([
     {
         path: '/register',
         element:<Register></Register>
+    },
+    {
+        path: '/details',
+        element:<Details></Details>
     }
 ]);
 
