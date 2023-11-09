@@ -3,8 +3,8 @@ import 'react-awesome-slider/dist/styles.css';
 
 const Banner = () => {
     return (
-        <div>
-            <AwesomeSlider>
+        <div className='bg-black'>
+            <AwesomeSlider className='bg-black'>
                 <div>
                     <img className='bg-cover' src="https://i.ibb.co/cNhLQX9/library-995182-1280.jpg" alt="" />
                     <div className="absolute h-full flex items-center left-0 top-0 w-full bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">

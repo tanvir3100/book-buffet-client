@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext)
+    const { signIn, googleSignIn } = useContext(AuthContext)
 
     const handleLogin = e => {
         e.preventDefault()
@@ -27,11 +27,19 @@ const Login = () => {
                 console.log(error)
                 toast(error.message)
             })
-
-
     }
 
 
+    const handleGoogle = () => {
+        googleSignIn()
+            .then(result => {
+                console.log(result)
+                toast('login Successful,go to home page')
+            })
+            .then(error => {
+                console.error(error)
+            })
+    }
 
 
 
@@ -77,7 +85,7 @@ const Login = () => {
                                 <button className="btn bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-white border rounded-full">Login</button>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-warning bg-white text-black border rounded-full"><FcGoogle></FcGoogle>Login With Google</button>
+                                <button onClick={handleGoogle} className="btn btn-warning bg-white text-black border rounded-full"><FcGoogle></FcGoogle>Login With Google</button>
                             </div>
                             <p className='text-center'>If Not Register ? <Link to="/register"><span className='hover:underline text-red-500'>Register</span></Link></p>
                         </form>

@@ -1,0 +1,30 @@
+[
+    {
+        "image": "book1.jpg",
+        "name": "Novel",
+        "author": "Author 1",
+        "category": "Fiction",
+        "rating": 4.5
+    },
+    {
+        "image": "book2.jpg",
+        "name": "Thriller",
+        "author": "Author 2",
+        "category": "Non-fiction",
+        "rating": 4.0
+    },
+    {
+        "image": "book3.jpg",
+        "name": "History",
+        "author": "Author 3",
+        "category": "Mystery",
+        "rating": 3.8
+    },
+    {
+        "image": "book4.jpg",
+        "name": "Book 4",
+        "author": "Author 4",
+        "category": "Science Fiction",
+        "rating": 4.2
+    }
+]
