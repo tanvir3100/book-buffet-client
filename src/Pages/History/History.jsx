@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const History = () => {
@@ -18,7 +18,9 @@ const History = () => {
                             <p>BY:{history.authorName}</p>
                             <p>Rating:{history.rating}</p>
                             <div className="card-actions justify-end">
-                                <button className="badge badge-outline btn rounded-full border border-emerald-500 btn-accent font-bold w-full">Details</button>
+                            <Link to={`/details/${history._id}`}>
+                                    <button className="badge badge-outline btn rounded-full border border-emerald-500 btn-accent font-bold w-full">Details</button>
+                                </Link>
                             </div>
                         </div>
                     </div>)

@@ -23,7 +23,7 @@ const Update = () => {
         console.log(updateBook)
 
 
-        fetch(`http://localhost:4500/books/${_id}`, {
+        fetch(`https://book-buffet-server-site.vercel.app/books/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

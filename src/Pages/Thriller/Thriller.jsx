@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const Thriller = () => {
@@ -20,7 +20,9 @@ const Thriller = () => {
                             <p>BY:{thriller.authorName}</p>
                             <p>Rating:{thriller.rating}</p>
                             <div className="card-actions justify-end">
-                                <button className="badge badge-outline btn rounded-full border border-emerald-500 btn-accent font-bold w-full">Details</button>
+                            <Link to={`/details/${thriller._id}`}>
+                                    <button className="badge badge-outline btn rounded-full border border-emerald-500 btn-accent font-bold w-full">Details</button>
+                                </Link>
                             </div>
                         </div>
                     </div>)
