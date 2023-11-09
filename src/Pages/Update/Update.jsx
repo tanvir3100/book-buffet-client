@@ -1,6 +1,11 @@
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Update = () => {
+
+    const books = useLoaderData();
+    const { _id, image, name, authorName, quantityOfBooks, category, shortDescription, description, rating } = books
 
 
     const handleUpdate = event => {
@@ -12,9 +17,34 @@ const Update = () => {
         const quantityOfBooks = form.quantity.value;
         const category = form.category.value;
         const shortDescription = form.shortDescription.value;
+        const description = form.description.value;
         const rating = form.rating.value;
-        const updateBook = { image, name, authorName, quantityOfBooks, category, shortDescription, rating }
+        const updateBook = { image, name, authorName, quantityOfBooks, description, category, shortDescription, rating }
         console.log(updateBook)
+
+
+        fetch(`http://localhost:4500/books/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateBook)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'done...',
+                        text: 'Book updated successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        form.reset();
+                    })
+                }
+            })
     }
 
 
@@ -28,46 +58,52 @@ const Update = () => {
                     <label className="label">
                         <span className="label-text">Image</span>
                     </label>
-                    <input type="text" placeholder="Image" name="image" className="input input-bordered shadow-md" required />
+                    <input type="text" placeholder="Image" name="image" defaultValue={image} className="input input-bordered shadow-md" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Name</span>
                     </label>
-                    <input type="text" placeholder="Name" name="name" className="input input-bordered shadow-md" required />
+                    <input type="text" placeholder="Name" name="name" defaultValue={name} className="input input-bordered shadow-md" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Quantity of the book</span>
                     </label>
-                    <input type="text" placeholder="Quantity of the book" name="quantity" className="input input-bordered shadow-md" required />
+                    <input type="text" placeholder="Quantity of the book" name="quantity" defaultValue={quantityOfBooks} className="input input-bordered shadow-md" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Author Name</span>
                     </label>
-                    <input type="text" placeholder="Author Name" name="author" className="input input-bordered shadow-md" required />
+                    <input type="text" placeholder="Author Name" name="author" defaultValue={authorName} className="input input-bordered shadow-md" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Category</span>
                     </label>
-                    <input type="text" placeholder="category" name="category" className="input input-bordered shadow-md" required />
+                    <input type="text" placeholder="category" name="category" defaultValue={category} className="input input-bordered shadow-md" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Short description</span>
                     </label>
-                    <input type="text" placeholder="Short description" name="shortDescription" className="input input-bordered shadow-md" required />
+                    <input type="text" placeholder="Short description" name="shortDescription" defaultValue={shortDescription} className="input input-bordered shadow-md" required />
                 </div>
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Rating</span>
                     </label>
-                    <input type="text" placeholder="Rating" name="rating" className="input input-bordered shadow-md" required />
+                    <input type="text" placeholder="Rating" name="rating" defaultValue={rating} className="input input-bordered shadow-md" required />
+                </div>
+                <div className="form-control md:col-span-2">
+                    <label className="label">
+                        <span className="label-text"></span>
+                    </label>
+                    <textarea placeholder="Description" name="description" defaultValue={description} id="" cols="30"  className="input input-bordered shadow-md p-2" required></textarea>
                 </div>
                 <div className="form-control mt-6 md:col-span-2">
-                    <button className="btn bg-gradient-to-r from-slate-600 from-10% via-slate-800 via-30% to-slate-500 to-90% border-none text-white">Add button</button>
+                    <button className="btn bg-gradient-to-r from-slate-600 from-10% via-slate-800 via-30% to-slate-500 to-90% border-none text-white">Submit</button>
                 </div>
             </form>
         </div>

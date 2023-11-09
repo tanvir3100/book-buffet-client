@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const BookCollection = () => {
 
@@ -29,7 +30,9 @@ const BookCollection = () => {
                                     {book.name}
                                 </h2>
                                 <div className="w-full">
-                                    <div className="badge badge-outline btn rounded-full border border-emerald-500 btn-accent font-bold w-full">go to {book.name}</div>
+                                    <Link to={`/${book.name}`}>
+                                        <div className="badge badge-outline btn rounded-full border border-emerald-500 btn-accent font-bold w-full">go to {book.name}</div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

@@ -21,7 +21,7 @@ const Poster = () => {
                         Welcome To Our Library</h1>
                     <p className="text-xl lg:text-4xl font-bold text-center text-white " data-aos="fade-down"
                         data-aos-easing="linear"
-                        data-aos-duration="1800">We are Always With You</p>
+                        data-aos-duration="1500">We are Always With You</p>
                     <div className="w-full flex justify-center items-center">
                         <form className="border-none rounded-full">
                             <div>

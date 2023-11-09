@@ -39,12 +39,12 @@ const Navbar = () => {
             AllBooks
         </NavLink>
         <NavLink
-            to="/update"
+            to="/borrowBooks"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-teal-600 font-bold" : ""
             }
         >
-            Update
+            BorrowBooks
         </NavLink>
         <NavLink
             to="/login"
