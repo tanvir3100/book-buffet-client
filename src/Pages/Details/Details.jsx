@@ -20,7 +20,7 @@ const Details = () => {
         console.log(userName, userEmail, returnDate)
 
         const bookCart = { image, name, authorName, quantityOfBooks, description, category, shortDescription, rating, userName, userEmail, returnDate }
-        fetch('http://localhost:4500/booksCart', {
+        fetch('https://book-buffet-server-site.vercel.app/booksCart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
