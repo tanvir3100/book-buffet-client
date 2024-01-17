@@ -33,42 +33,42 @@ const router = createBrowserRouter([
             {
                 path: '/allBooks',
                 element: <AllBooks></AllBooks>,
-                loader: () => fetch('https://book-buffet-server-site.vercel.app/books')
+                loader: () => fetch('http://localhost:4500/books')
             },
             {
                 path: '/borrowBooks',
                 element: <PrivateRouter><BorrowBooks></BorrowBooks></PrivateRouter>,
-                loader: () => fetch('https://book-buffet-server-site.vercel.app/booksCart')
+                loader: () => fetch('http://localhost:4500/booksCart')
             },
             {
                 path: '/update/:id',
                 element: <PrivateRouter><Update></Update></PrivateRouter>,
-                loader: ({ params }) => fetch(`https://book-buffet-server-site.vercel.app/books/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:4500/books/${params.id}`)
             },
             {
                 path: '/novel',
                 element: <Novel></Novel>,
-                loader: () => fetch('https://book-buffet-server-site.vercel.app/books')
+                loader: () => fetch('http://localhost:4500/books')
             },
             {
                 path: '/history',
                 element: <History></History>,
-                loader: () => fetch('https://book-buffet-server-site.vercel.app/books')
+                loader: () => fetch('http://localhost:4500/books')
             },
             {
                 path: '/drama',
                 element: <Drama></Drama>,
-                loader: () => fetch('https://book-buffet-server-site.vercel.app/books')
+                loader: () => fetch('http://localhost:4500/books')
             },
             {
                 path: '/thriller',
                 element: <Thriller></Thriller>,
-                loader: () => fetch('https://book-buffet-server-site.vercel.app/books')
+                loader: () => fetch('http://localhost:4500/books')
             },
             {
                 path: '/details/:id',
                 element: <PrivateRouter><Details></Details></PrivateRouter>,
-                loader: ({ params }) => fetch(`https://book-buffet-server-site.vercel.app/books/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:4500/books/${params.id}`)
             }
 
         ]

@@ -20,7 +20,7 @@ const Details = () => {
         console.log(userName, userEmail, returnDate)
 
         const bookCart = { image, name, authorName, quantityOfBooks, description, category, shortDescription, rating, userName, userEmail, returnDate }
-        fetch('https://book-buffet-server-site.vercel.app/booksCart', {
+        fetch('http://localhost:4500/booksCart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -47,7 +47,7 @@ const Details = () => {
                         <p className="py-6 font-bold">{authorName}</p>
                         <p className="py-6 font-bold">{rating}</p>
                         {/* Open the modal using document.getElementById('ID').showModal() method */}
-                        <button className="btn badge badge-outline rounded-full border border-emerald-500 btn-accent mr-2" onClick={() => document.getElementById('my_modal_5').showModal()}>Borrow</button>
+                        <button className="btn badge badge-outline rounded-none border border-emerald-500 btn-accent mr-2" onClick={() => document.getElementById('my_modal_5').showModal()}>Borrow</button>
                         <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                             <div className="modal-box">
                                 <div>
@@ -57,28 +57,30 @@ const Details = () => {
                                                 <label className="label">
                                                     <span className="label-text">Email</span>
                                                 </label>
-                                                <input type="text" placeholder="email" defaultValue={user.email} name="email" className="input input-bordered shadow-md" required />
+                                                <input type="text" placeholder="email" defaultValue={user.email} name="email" className="input input-bordered shadow-md" />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label">
                                                     <span className="label-text">Return date</span>
                                                 </label>
-                                                <input type="date" name="date" className="input input-bordered shadow-md" required />
+                                                <input type="date" name="date" className="input input-bordered shadow-md" />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label">
                                                     <span className="label-text">Name</span>
                                                 </label>
-                                                <input type="text" placeholder="name" defaultValue={user.displayName} name="name" className="input input-bordered shadow-md" required />
+                                                <input type="text" placeholder="name" defaultValue={user.displayName} name="name" className="input input-bordered shadow-md" />
                                             </div>
                                         </div>
                                         {/* if there is a button in form, it will close the modal */}
-                                        <button className="btn badge badge-outline rounded-full border border-emerald-500 btn-accent">Submit</button>
+                                        <div className="gap-5 flex">
+                                            <button className="btn badge badge-outline rounded-none border border-emerald-500 btn-accent">Submit</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
                         </dialog>
-                        <button className="btn badge badge-outline rounded-full border border-emerald-500 btn-accent" onClick={() => document.getElementById('my_modal_3').showModal()}>Read</button>
+                        <button className="btn badge badge-outline rounded-none border border-emerald-500 btn-accent" onClick={() => document.getElementById('my_modal_3').showModal()}>Read</button>
                         <dialog id="my_modal_3" className="modal modal-bottom sm:modal-middle">
                             <div className="modal-box">
                                 <h3 className="font-bold text-lg">{name}</h3>
@@ -86,7 +88,7 @@ const Details = () => {
                                 <div className="modal-action">
                                     <form method="dialog">
                                         {/* if there is a button in form, it will close the modal */}
-                                        <button className="btn badge badge-outline rounded-full border border-emerald-500 btn-accent">Close</button>
+                                        <button className="btn badge badge-outline rounded-none border border-emerald-500 btn-accent">Close</button>
                                     </form>
                                 </div>
                             </div>

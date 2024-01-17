@@ -15,7 +15,7 @@ const BorrowBooks = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://book-buffet-server-site.vercel.app/booksCart/${_id}`, {
+                fetch(`http://localhost:4500/booksCart/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

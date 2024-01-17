@@ -19,29 +19,19 @@ const Poster = () => {
                         data-aos-duration="1500"
                         className="font-bold bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-transparent bg-clip-text text-3xl lg:text-7xl">
                         Welcome To Our Library</h1>
-                    <p className="text-xl lg:text-4xl font-bold text-center text-white " data-aos="fade-down"
+                    <p className="text-xl lg:text-4xl font-bold text-center text-white " data-aos="fade-left"
                         data-aos-easing="linear"
                         data-aos-duration="1500">We are Always With You</p>
                     <div className="w-full flex justify-center items-center">
                         <form className="border-none rounded-full">
                             <div>
-                                <input className="p-2 rounded-l-full w-64" type="search" placeholder="search..." name="search" />
-                                <button className="float-right border border-none border-cyan-600 text-white bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% p-2 rounded-r-full w-20 h-10 flex justify-center items-center"><BsSearch className="text-black font-bold"></BsSearch></button>
+                                <input className="p-1 lg:p-2 rounded-l-full lg:w-64" type="search" placeholder="search..." name="search" />
+                                <button className="float-right border border-none border-cyan-600 text-white bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% p-1 lg:p-2 rounded-r-full w-20 h-8 lg:h-10 flex justify-center items-center"><BsSearch className="text-black font-bold"></BsSearch></button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            {/* <div className="absolute left-[25%] top-[60%] hidden lg:block">
-                <div className="">
-                    <img className="w-20" src="https://i.ibb.co/pXPqbqW/images-removebg-preview-2.png" alt="" />
-                </div>
-            </div>
-            <div className="absolute left-[72%] top-[49%] hidden lg:block">
-                <div className="">
-                    <img className="w-20" src="https://i.ibb.co/xKnd72J/580b585b2edbce24c47b276b-removebg-preview.png" alt="" />
-                </div>
-            </div> */}
         </div>
     );
 };
